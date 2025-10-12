@@ -1,0 +1,56 @@
+/* Parent container fills viewport */
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full window height */
+    font-size: 1vw;
+}
+
+/* Equal height sections */
+.topSection,
+.bottomSection {
+    flex: 1; /* 1:1 ratio -> 50/50 split */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+}
+
+/* Colors for clarity */
+.topSection {
+    background-color: rgb(71, 110, 193);
+}
+
+.bottomSection {
+    background-color: rgb(77, 181, 187);
+}
+
+/* Title style */
+.title {
+    background-color: darkblue;
+    color: whitesmoke;
+    border-radius: 25px;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 80px;
+    transform: translateY(-30%)
+}
+
+.playButton {
+    font-weight: 700;
+    background-color: rgb(63, 164, 70);
+    color: black;
+    border: 4px solid black;
+    font-size: 25px;
+    padding: 20px 40px;
+    border-radius: 60px;
+}
+
+.playButton:hover {
+    background-color: rgb(40, 120, 45); /* darker green */
+}
+
+.playButton:active {
+    background-color: rgb(25, 90, 30);
+    transform: scale(0.98); /* subtle click effect */
+}
