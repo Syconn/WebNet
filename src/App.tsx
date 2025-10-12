@@ -12,10 +12,10 @@ export type PageProps = {
     setPage: (auth: string) => void;
 }
 
-// Uses local storage to hold game state without having to fully rely on network protocols
 function App() {
     const [page, setPage] = useTypeState<Page>(() => {
         const stored = localStorage.getItem("page");
+        console.log(stored);
         return stored ? JSON.parse(stored) : { "page": Pages.MainMenu};
     });
 
