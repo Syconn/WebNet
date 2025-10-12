@@ -3,6 +3,8 @@ import {Pages} from "./util/Constants.ts";
 import MainMenu from "./pages/MainMenu.tsx";
 import "./App.css"
 import GameLoop from "./pages/GameLoop.tsx";
+import {requestPage} from "./networking/WebRequests.tsx";
+import {useEffect, useState} from "react";
 
 export type Page = {
     page: string;
@@ -13,14 +15,16 @@ export type PageProps = {
 }
 
 function App() {
-    const [page, setPage] = useTypeState<Page>(() => {
-        const stored = localStorage.getItem("page");
-        console.log(stored);
-        return stored ? JSON.parse(stored) : { "page": Pages.MainMenu};
-    });
+    const [test, setTest] = useState<string>("No data");
+    const [page, setPage] = useTypeState<Page>(() => { return { "page": Pages.MainMenu}; });
+
+    useEffect(() => {
+        requestPage().then(pageData => setTest(pageData));
+    }, [])
 
     return (
       <div className="App">
+          <p>{test}</p>
           {page.page == Pages.MainMenu && <MainMenu setPage={p => setPage("page", p)} />}
           {page.page == Pages.GameLoop && <GameLoop />}
       </div>
