@@ -1,12 +1,26 @@
+
 export async function requestPage() {
     try {
         const res = await fetch("http://localhost:8080/page", {
-            method: "POST",
+            method: "GET",
             headers: { "Content-Type": "application/json" },
         });
         const data = await res.json();
-        console.log(data);
         return data.page;
+    } catch (err) {
+        console.error("Error:", err);
+    }
+}
+
+export async function changePage(page: string, setPage: (page: string) => void) {
+    try {
+        const res = await fetch("http://localhost:8080/setPage", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({"body" : page})
+        })
+        const data = await res.json();
+        if (data.success) setPage(page);
     } catch (err) {
         console.error("Error:", err);
     }
