@@ -1,0 +1,33 @@
+.handArea {
+    display: flex;
+    background-color: lightblue;
+    flex: 2;
+    justify-content: center;
+    align-items: flex-end;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    height: 190px;
+    width: 150px;
+    background-color: lightpink;
+    border-radius: 18px;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.cardText {
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word;     /* breaks long words */
+    overflow-wrap: break-word; /* modern equivalent */
+    white-space: normal;       /* allows text to wrap to next line */
+    overflow: hidden;          /* hides any excess text */
+    text-overflow: ellipsis;
+}

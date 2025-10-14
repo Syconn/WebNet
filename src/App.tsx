@@ -2,7 +2,7 @@ import {useTypeState} from "./util/Utility.tsx";
 import {Pages} from "./util/Constants.ts";
 import MainMenu from "./pages/MainMenu.tsx";
 import "./App.css"
-import GameLoop from "./pages/GameLoop.tsx";
+import GameLoop from "./pages/gameLoopPage/GameLoop.tsx";
 
 export type Page = {
     page: string;

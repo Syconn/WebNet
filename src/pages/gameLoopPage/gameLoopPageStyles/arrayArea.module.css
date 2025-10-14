@@ -1,0 +1,26 @@
+.arrayArea {
+    display: flex;
+    flex: 3;
+    background-color: lightpink;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 8px solid black;
+    border-bottom: 8px solid black;
+
+}
+
+.arrayText {
+    text-align: center;
+    border: 4px solid black;
+    border-radius: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 340px;
+    background-color: #2a71a8;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    color: #ccc7c7;
+}
