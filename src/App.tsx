@@ -10,7 +10,7 @@ export type PageProps = {
 }
 
 function App() {
-    const [page, setPage] = useState<string>(Pages.MainMenu);
+    const [page, setPage] = useState<string>(Pages.GameLoop);
     const [serverActive, setServerActive] = useState<boolean>(false);
 
     useEffect(() => { serverStatus().then(result => setServerActive(result != undefined)); }, []);

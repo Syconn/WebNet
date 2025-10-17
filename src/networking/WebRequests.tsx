@@ -4,11 +4,11 @@ export async function serverStatus() {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
-        const data = await res.json();
-        return data.success;
+        const data = await res.json()
+        return data.success
     } catch (e) {
-        console.error("Error:", e);
-        return undefined;
+        console.error("Error:", e)
+        return undefined
     }
 }
 
@@ -18,10 +18,10 @@ export async function requestPage() {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
-        const data = await res.json();
-        return data.page;
+        const data = await res.json()
+        return data.page
     } catch (err) {
-        console.error("Error:", err);
+        console.error("Error:", err)
     }
 }
 
@@ -32,9 +32,9 @@ export async function changePage(page: string, setPage: (page: string) => void) 
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({"body" : page})
         })
-        const data = await res.json();
-        if (data.success) setPage(page);
+        const data = await res.json()
+        if (data.success) setPage(page)
     } catch (err) {
-        console.error("Error:", err);
+        console.error("Error:", err)
     }
 }
