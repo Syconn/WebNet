@@ -1,6 +1,7 @@
 import type { PageProps } from "../App.tsx";
 import styles from "./MainMenu.module.css";
 import { Pages } from "../util/Constants.ts";
+import {changePage} from "../networking/WebRequests.tsx";
 
 function MainMenu({ setPage }: PageProps) {
   return (
@@ -18,10 +19,7 @@ function MainMenu({ setPage }: PageProps) {
         </div>
 
         <div className={styles.bottomSection}>
-          <button
-              className={styles.playButton}
-              onClick={() => setPage(Pages.GameLoop)}
-          >
+          <button className={styles.playButton} onClick={() => changePage(Pages.GameLoop, setPage)}>
             Play Game
           </button>
         </div>
