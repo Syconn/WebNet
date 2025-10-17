@@ -1,28 +1,25 @@
-import {useTypeState} from "./util/Utility.tsx";
 import {Pages} from "./util/Constants.ts";
 import MainMenu from "./pages/MainMenu.tsx";
 import "./App.css"
 import GameLoop from "./pages/gameLoopPage/GameLoop.tsx";
-
-export type Page = {
-    page: string;
-}
+import {useEffect, useState} from "react";
+import {serverStatus} from "./networking/WebRequests.tsx";
 
 export type PageProps = {
-    setPage: (auth: string) => void;
+    setPage: (page: string) => void;
 }
 
 function App() {
-    const [page, setPage] = useTypeState<Page>(() => {
-        const stored = localStorage.getItem("page");
-        console.log(stored);
-        return stored ? JSON.parse(stored) : { "page": Pages.MainMenu};
-    });
+    const [page, setPage] = useState<string>(Pages.MainMenu);
+    const [serverActive, setServerActive] = useState<boolean>(false);
+
+    useEffect(() => { serverStatus().then(result => setServerActive(result != undefined)); }, []);
 
     return (
       <div className="App">
-          {page.page == Pages.MainMenu && <MainMenu setPage={p => setPage("page", p)} />}
-          {page.page == Pages.GameLoop && <GameLoop />}
+          {!serverActive && <p> Server is not Running Currently </p>}
+          {page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}
+          {page == Pages.GameLoop && <GameLoop />}
       </div>
     )
 }
