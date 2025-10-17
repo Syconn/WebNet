@@ -6,7 +6,7 @@ import handAreaStyles from "./gameLoopPageStyles/handArea.module.css"
 function GameLoop() {
     const count = 0
     const pointCount = 45
-    const arrayString = [1,2,3,4,5,6]
+    // const arrayString = [1,2,3,4,5,6]
     return (
         <div className={gameAreaStyles.pageContainer}>
           <div className={headerStyles.header}>
@@ -27,11 +27,41 @@ function GameLoop() {
           </div>
           <div className={gameAreaStyles.gameArea}>
             <div className={arrayAreaStyles.arrayArea}>
-              <p className={arrayAreaStyles.arrayText}>
-                {arrayString}
-              </p>
+              <div className = {arrayAreaStyles.arrayDigit}>
+                1
+              </div>
+              <div className = {arrayAreaStyles.arrayDigit}>
+                2
+              </div>
+              <div className = {arrayAreaStyles.arrayDigit}>
+                3
+              </div>
+              <div className = {arrayAreaStyles.arrayDigit}>
+                4
+              </div>
+              <div className = {arrayAreaStyles.arrayDigit}>
+                5
+              </div>
+              {/*<p className={arrayAreaStyles.arrayText}>*/}
+              {/*  {arrayString}*/}
+              {/*</p>*/}
             </div>
             <div className={handAreaStyles.handArea}>
+              <div className={handAreaStyles.card}>
+                <p className = {handAreaStyles.cardText}>
+                  af,jbaoufhbafilhavfailvyhbailfgkahf ilafhkbfilYFVhbakufjahflufgh
+                </p>
+              </div>
+              <div className={handAreaStyles.card}>
+                <p className = {handAreaStyles.cardText}>
+                  af,jbaoufhbafilhavfailvyhbailfgkahf ilafhkbfilYFVhbakufjahflufgh
+                </p>
+              </div>
+              <div className={handAreaStyles.card}>
+                <p className = {handAreaStyles.cardText}>
+                  af,jbaoufhbafilhavfailvyhbailfgkahf ilafhkbfilYFVhbakufjahflufgh
+                </p>
+              </div>
               <div className={handAreaStyles.card}>
                 <p className = {handAreaStyles.cardText}>
                   af,jbaoufhbafilhavfailvyhbailfgkahf ilafhkbfilYFVhbakufjahflufgh
