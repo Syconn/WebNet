@@ -25,6 +25,19 @@ export async function requestPage() {
     }
 }
 
+export async function arrayState()  {
+    try {
+        const res = await fetch("http://localhost:8080/array", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+        const data = await res.json()
+        return data.array
+    } catch (e) {
+        console.error("Error:", e)
+    }
+}
+
 export async function changePage(page: string, setPage: (page: string) => void) {
     try {
         const res = await fetch("http://localhost:8080/setPage", {

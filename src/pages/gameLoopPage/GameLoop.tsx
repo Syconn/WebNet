@@ -2,24 +2,28 @@ import gameAreaStyles from "./gameLoopPageStyles/gameArea.module.css"
 import arrayAreaStyles from "./gameLoopPageStyles/arrayArea.module.css"
 import handAreaStyles from "./gameLoopPageStyles/handArea.module.css"
 import {ArrayElement, CardElement, HeaderElement} from "../../util/Utility.tsx";
+import {useEffect, useState} from "react";
+import {arrayState} from "../../networking/WebRequests.tsx";
 
 function GameLoop() {
-    const turns = 0
-    const points = 45
-    const arrayString = [1,2,3,4,5,6,7,8,9]
+    const [array, setArray] = useState<number[]>([])
+    const [turns] = useState<number>(0)
+    const [points] = useState<number>(45)
+
+    useEffect(() => { arrayState().then(arrayState => setArray(arrayState)) }, []);
+
     return (
         <div className={gameAreaStyles.pageContainer}>
           <HeaderElement turns={turns} points={points} />
           <div className={gameAreaStyles.gameArea}>
             <div className={arrayAreaStyles.arrayArea}>
-              {arrayString.map(val => (<ArrayElement value={val}/>))}
+              {array.map(val => (<ArrayElement value={val} key={val}/>))}
             </div>
             <div className={handAreaStyles.handArea}>
               <CardElement />
             </div>
           </div>
         </div>
-
     )
 }
 

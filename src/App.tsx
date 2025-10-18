@@ -3,17 +3,18 @@ import MainMenu from "./pages/MainMenu.tsx";
 import "./App.css"
 import GameLoop from "./pages/gameLoopPage/GameLoop.tsx";
 import {useEffect, useState} from "react";
-import {serverStatus} from "./networking/WebRequests.tsx";
+import {requestPage, serverStatus} from "./networking/WebRequests.tsx";
 
 export type PageProps = {
     setPage: (page: string) => void;
 }
 
 function App() {
-    const [page, setPage] = useState<string>(Pages.GameLoop);
-    const [serverActive, setServerActive] = useState<boolean>(false);
+    const [page, setPage] = useState<string>(Pages.GameLoop)
+    const [serverActive, setServerActive] = useState<boolean>(true)
 
-    useEffect(() => { serverStatus().then(result => setServerActive(result != undefined)); }, []);
+    useEffect(() => { requestPage().then(pageData => { if (pageData) setPage(pageData); }); }, []);
+    useEffect(() => { serverStatus().then(result => setServerActive(result != undefined)); }, [])
 
     return (
       <div className="App">
