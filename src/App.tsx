@@ -1,5 +1,5 @@
 import {Pages} from "./util/Constants.ts";
-import MainMenu from "./pages/MainMenu.tsx";
+import MainMenu from "./pages/mainMenu/MainMenu.tsx";
 import "./App.css"
 import GameLoop from "./pages/gameLoopPage/GameLoop.tsx";
 import {useEffect, useState} from "react";
@@ -15,7 +15,12 @@ function App() {
     const [serverActive, setServerActive] = useState<boolean>(true)
 
     useEffect(() => { requestPage().then(pageData => { if (pageData) setPage(pageData); }); }, []);
-    useEffect(() => { serverStatus().then(result => setServerActive(result != undefined)); }, [])
+    useEffect(() => {
+        const status = async () => serverStatus().then(result => setServerActive(result != undefined))
+        status()
+        const interval = setInterval(status, 5000)
+        return () => clearInterval(interval);
+    }, [])
 
     return (
       <div className="App">
