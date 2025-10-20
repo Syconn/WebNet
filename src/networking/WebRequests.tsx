@@ -35,6 +35,7 @@ export async function arrayState()  {
         return data.array
     } catch (e) {
         console.error("Error:", e)
+        return []
     }
 }
 

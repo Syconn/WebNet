@@ -1,6 +1,6 @@
-import gameAreaStyles from "./gameLoopPageStyles/gameArea.module.css"
-import arrayAreaStyles from "./gameLoopPageStyles/arrayArea.module.css"
-import handAreaStyles from "./gameLoopPageStyles/handArea.module.css"
+import gameAreaStyles from "./styles/gameArea.module.css"
+import arrayAreaStyles from "./styles/arrayArea.module.css"
+import handAreaStyles from "./styles/handArea.module.css"
 import {ArrayElement, CardElement, HeaderElement} from "../../util/Utility.tsx";
 import {useEffect, useState} from "react";
 import {arrayState} from "../../networking/WebRequests.tsx";

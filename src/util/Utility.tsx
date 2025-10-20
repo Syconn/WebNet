@@ -1,6 +1,6 @@
-import arrayAreaStyles from "../pages/gameLoopPage/gameLoopPageStyles/arrayArea.module.css"
-import handAreaStyles from "../pages/gameLoopPage/gameLoopPageStyles/handArea.module.css";
-import headerStyles from "../pages/gameLoopPage/gameLoopPageStyles/header.module.css";
+import arrayAreaStyles from "../pages/gameLoopPage/styles/arrayArea.module.css"
+import handAreaStyles from "../pages/gameLoopPage/styles/handArea.module.css";
+import headerStyles from "../pages/gameLoopPage/styles/header.module.css";
 
 export function ArrayElement({ value } : {value: number}) {
     return (
