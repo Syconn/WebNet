@@ -2,18 +2,25 @@ p {
     font-family: arial;
     margin: 0;
 }
-
+.resetbutton,
+.title,
+.creators,
+.turns,
+.points,
+.resetButton
+{
+    background-color: lightpink;
+}
 .header {
-    background-color: rgb(90, 90, 90);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: #2a71a8;
 }
 
 .resetButton {
     margin-left: 10px;
-    background-color: #2a71a8;
     color: white;
     border: 1px solid black;
     border-radius: 15px;
@@ -41,8 +48,6 @@ p {
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
-
-    background-color: rgb(10,242,255);
     border-radius: 15px;
 }
 
@@ -59,7 +64,6 @@ p {
     font-size: 14px;
     color: white;
     margin-right: 10px;
-    background-color: #2a71a8;
     border-radius: 15px;
     padding-right: 10px;
     padding-left: 10px;
