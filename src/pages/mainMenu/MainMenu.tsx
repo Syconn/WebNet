@@ -1,7 +1,7 @@
-import type { PageProps } from "../App.tsx";
-import styles from "./MainMenu.module.css";
-import { Pages } from "../util/Constants.ts";
-import {changePage} from "../networking/WebRequests.tsx";
+import type { PageProps } from "../../App.tsx";
+import styles from "./styles/MainMenu.module.css";
+import { Pages } from "../../util/Constants.ts";
+import {changePage} from "../../networking/WebRequests.tsx";
 
 function MainMenu({ setPage }: PageProps) {
   return (

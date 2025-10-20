@@ -1,76 +1,29 @@
-// import styles from "./GameLoop.module.css";
-import headerStyles from "./gameLoopPageStyles/header.module.css";
-import gameAreaStyles from "./gameLoopPageStyles/gameArea.module.css"
-import arrayAreaStyles from "./gameLoopPageStyles/arrayArea.module.css"
-import handAreaStyles from "./gameLoopPageStyles/handArea.module.css"
+import gameAreaStyles from "./styles/gameArea.module.css"
+import arrayAreaStyles from "./styles/arrayArea.module.css"
+import handAreaStyles from "./styles/handArea.module.css"
+import {ArrayElement, CardElement, HeaderElement} from "../../util/Utility.tsx";
+import {useEffect, useState} from "react";
+import {arrayState} from "../../networking/WebRequests.tsx";
+
 function GameLoop() {
-    const count = 0
-    const pointCount = 45
-    // const arrayString = [1,2,3,4,5,6]
+    const [array, setArray] = useState<number[]>([])
+    const [turns] = useState<number>(0)
+    const [points] = useState<number>(45)
+
+    useEffect(() => { arrayState().then(arrayState => setArray(arrayState)) }, []);
+
     return (
         <div className={gameAreaStyles.pageContainer}>
-          <div className={headerStyles.header}>
-            <button className={headerStyles.resetButton}>
-              Reset
-            </button>
-            <p className = {headerStyles.title}>
-              CodeSort
-            </p>
-            <div className={headerStyles.rightSection}>
-              <p className = {headerStyles.turns}>
-                Turns Passed {count}
-              </p>
-              <p className = {headerStyles.points}>
-                Total Points {pointCount}
-              </p>
-            </div>
-          </div>
+          <HeaderElement turns={turns} points={points} />
           <div className={gameAreaStyles.gameArea}>
             <div className={arrayAreaStyles.arrayArea}>
-              <div className = {arrayAreaStyles.arrayDigit}>
-                1
-              </div>
-              <div className = {arrayAreaStyles.arrayDigit}>
-                2
-              </div>
-              <div className = {arrayAreaStyles.arrayDigit}>
-                3
-              </div>
-              <div className = {arrayAreaStyles.arrayDigit}>
-                4
-              </div>
-              <div className = {arrayAreaStyles.arrayDigit}>
-                5
-              </div>
-              {/*<p className={arrayAreaStyles.arrayText}>*/}
-              {/*  {arrayString}*/}
-              {/*</p>*/}
+              {array.map(val => (<ArrayElement value={val} key={val}/>))}
             </div>
             <div className={handAreaStyles.handArea}>
-              <div className={handAreaStyles.card}>
-                <p className = {handAreaStyles.cardText}>
-                  af,jbaoufhbafilhavfailvyhbailfgkahf ilafhkbfilYFVhbakufjahflufgh
-                </p>
-              </div>
-              <div className={handAreaStyles.card}>
-                <p className = {handAreaStyles.cardText}>
-                  af,jbaoufhbafilhavfailvyhbailfgkahf ilafhkbfilYFVhbakufjahflufgh
-                </p>
-              </div>
-              <div className={handAreaStyles.card}>
-                <p className = {handAreaStyles.cardText}>
-                  af,jbaoufhbafilhavfailvyhbailfgkahf ilafhkbfilYFVhbakufjahflufgh
-                </p>
-              </div>
-              <div className={handAreaStyles.card}>
-                <p className = {handAreaStyles.cardText}>
-                  af,jbaoufhbafilhavfailvyhbailfgkahf ilafhkbfilYFVhbakufjahflufgh
-                </p>
-              </div>
+              <CardElement />
             </div>
           </div>
         </div>
-
     )
 }
 
