@@ -1,9 +1,10 @@
 import gameAreaStyles from "./styles/gameArea.module.css"
 import arrayAreaStyles from "./styles/arrayArea.module.css"
 import handAreaStyles from "./styles/handArea.module.css"
-import {ArrayElement, CardElement, HeaderElement} from "../../util/Utility.tsx";
+import {ArrayElement, HeaderElement} from "../../util/Utility.tsx";
 import {useEffect, useState} from "react";
 import {arrayState} from "../../networking/WebRequests.tsx";
+import CardElement from "./Card.tsx";
 
 function GameLoop() {
     const [array, setArray] = useState<number[]>([])

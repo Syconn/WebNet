@@ -11,7 +11,7 @@ export type PageProps = {
 }
 
 function App() {
-    const [page, setPage] = useState<string>(Pages.MainMenu);
+    const [page, setPage] = useState<string>(Pages.GameLoop);
     const [serverActive, setServerActive] = useState<boolean>(true)
 
     useEffect(() => { requestPage().then(pageData => { if (pageData) setPage(pageData); }); }, []);
@@ -24,7 +24,7 @@ function App() {
 
     return (
       <div className="App">
-          {!serverActive && <ServerErrorPopup />}
+          {/*{!serverActive && <ServerErrorPopup />}*/}
           {page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}
           {page == Pages.GameLoop && <GameLoop />}
       </div>
