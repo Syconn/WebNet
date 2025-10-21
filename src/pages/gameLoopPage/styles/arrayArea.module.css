@@ -1,13 +1,11 @@
 .arrayArea {
     display: flex;
     flex: 3;
-    background-color: #272b7f;
+    background-color: #2274ab;
     justify-content: center;
     align-items: center;
-
-    border-top: 8px solid #272b7f;
-    border-bottom: 8px solid #272b7f;
-
+    border-top: 8px solid #2274ab;
+    border-bottom: 8px solid #2274ab;
 }
 
 .arrayDigit {

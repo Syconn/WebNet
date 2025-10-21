@@ -9,7 +9,7 @@ import CardElement from "./Card.tsx";
 function GameLoop() {
     const [array, setArray] = useState<number[]>([])
     const [turns] = useState<number>(0)
-    const [points] = useState<number>(45)
+    const [points] = useState<number>(0)
 
     useEffect(() => { arrayState().then(arrayState => setArray(arrayState)) }, []);
 
@@ -22,6 +22,7 @@ function GameLoop() {
             </div>
             <div className={handAreaStyles.handArea}>
               <CardElement card={{name: "Bubble Sort", image: "bubble.png", desc: "Compares each pair of adjacent elements and swaps them if they are out of order."}} />
+              <CardElement card={{name: "Insertion Sort", image: "insertion.png", desc: "Compares each pair of adjacent elements and swaps them if they are out of order."}} />
             </div>
           </div>
         </div>

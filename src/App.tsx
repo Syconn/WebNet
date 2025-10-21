@@ -25,7 +25,7 @@ function App() {
     return (
       <div className="App">
           {/*{!serverActive && <ServerErrorPopup />}*/}
-          {page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}
+          {/*{page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}*/}
           {page == Pages.GameLoop && <GameLoop />}
       </div>
     )
