@@ -1,4 +1,5 @@
 import handAreaStyles from "./styles/handArea.module.css";
+import { HelpCircle } from "lucide-react";
 
 export type CardData = {
     name: string,
@@ -6,12 +7,15 @@ export type CardData = {
     desc: string,
 }
 
-function CardElement() {
+function CardElement({ card }: { card: CardData }) {
     return (
         <div className={handAreaStyles.card}>
-            <p className = {handAreaStyles.cardText}>
-                Merge Sort
-            </p>
+            <div className={handAreaStyles.hoverCorner}>
+                <HelpCircle size={16} />
+            </div>
+            <div className={handAreaStyles.cardDesc}>{card.desc}</div>
+            <p className={handAreaStyles.cardText}>{card.name}</p>
+            <img className={handAreaStyles.photo}  alt={""} src={card.image} />
         </div>
     )
 }

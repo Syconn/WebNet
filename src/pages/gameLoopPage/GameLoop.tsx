@@ -21,7 +21,7 @@ function GameLoop() {
               {array.map(val => (<ArrayElement value={val} key={val}/>))}
             </div>
             <div className={handAreaStyles.handArea}>
-              <CardElement />
+              <CardElement card={{name: "Bubble Sort", image: "bubble.png", desc: "Compares each pair of adjacent elements and swaps them if they are out of order."}} />
             </div>
           </div>
         </div>

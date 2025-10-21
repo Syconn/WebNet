@@ -1,11 +1,13 @@
 .handArea {
     display: flex;
-    background-color: rgb(0, 0, 0);
+    background-color: #272b7f;
     flex: 2;
     justify-content: center;
     align-items: flex-end;
 }
+
 .card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,23 +15,88 @@
     margin-bottom: 20px;
     height: 190px;
     width: 150px;
-    background-color: rgb(0,255,131);
+    background-color: rgb(0, 123, 255);
     border-radius: 18px;
     padding-top: 15px;
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 10px;
     border: 8px ;
-
 }
 
 .cardText {
     max-width: 100%;
-    padding: 10px;
+    scale: 1.5;
+    padding: 15px;
     text-align: center;
     word-wrap: break-word;     /* breaks long words */
     overflow-wrap: break-word; /* modern equivalent */
     white-space: normal;       /* allows text to wrap to next line */
     overflow: hidden;          /* hides any excess text */
     text-overflow: ellipsis;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card:hover .cardText {
+    display: block;
+}
+
+.photo {
+    max-width: 80%;
+    max-height: 80%;
+    scale: 1.5;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+.cardDesc {
+    display: none;
+    position: absolute;
+    bottom: 100%; /* positions above the card */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 12px 16px;
+    width: 180px; /* slightly wider than card */
+    max-height: 100px; /* restricts vertical height */
+    border-radius: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    z-index: 10;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.hoverCorner {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 24px;
+    height: 24px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card:hover .hoverCorner {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hoverCorner:hover + .cardDesc {
+    display: block;
 }

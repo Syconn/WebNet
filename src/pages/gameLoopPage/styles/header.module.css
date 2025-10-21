@@ -1,16 +1,17 @@
 p {
-    font-family: arial;
+    font-family: arial, serif;
     margin: 0;
 }
+
 .resetbutton,
 .title,
 .creators,
 .turns,
 .points,
-.resetButton
-{
-    background-color: lightpink;
+.resetButton {
+    background-color: rgb(0, 123, 255);
 }
+
 .header {
     display: flex;
     flex-direction: row;
@@ -21,16 +22,10 @@ p {
 
 .resetButton {
     margin-left: 10px;
-    color: white;
+    color: black;
     border: 1px solid black;
     border-radius: 15px;
-
-    padding-right:15px;
-    padding-left: 15px;
-
-    padding-top: 10px;
-    padding-bottom: 9px;
-
+    padding: 10px 15px 9px;
     font-size: 14px;
 }
 
@@ -40,14 +35,9 @@ p {
     border: none;
     color: black;
     transform: translateX(-50%);
-
     font-size: 24px;
     font-weight: 700;
-
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px;
     border-radius: 15px;
 }
 
@@ -60,16 +50,13 @@ p {
     flex-direction: column;
 }
 
-.turns,.points {
+.turns,
+.points {
     font-size: 14px;
-    color: white;
+    color: black;
     margin-right: 10px;
     border-radius: 15px;
-    padding-right: 10px;
-    padding-left: 10px;
-
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 10px;
 }
 
 .turns {
