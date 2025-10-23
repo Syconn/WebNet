@@ -11,20 +11,24 @@ export type PageProps = {
 }
 
 function App() {
-    const [page, setPage] = useState<string>(Pages.GameLoop);
+    const [page, setPage] = useState<string>(Pages.MainMenu);
     const [serverActive, setServerActive] = useState<boolean>(true)
 
-    useEffect(() => { requestPage().then(pageData => { if (pageData) setPage(pageData); }); }, []);
     useEffect(() => {
-        const status = async () => serverStatus().then(result => setServerActive(result != undefined))
-        status()
-        const interval = setInterval(status, 5000)
+        const update = async () => {
+            serverStatus().then(result => setServerActive(result != undefined))
+            requestPage().then(pageData => { if (pageData) setPage(pageData); })
+        }
+
+        update()
+
+        const interval = setInterval(update, 5000)
         return () => clearInterval(interval);
     }, [])
 
     return (
       <div className="App">
-          {/*{!serverActive && <ServerErrorPopup />}*/}
+          {!serverActive && <ServerErrorPopup />}
           {page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}
           {page == Pages.GameLoop && <GameLoop />}
       </div>
