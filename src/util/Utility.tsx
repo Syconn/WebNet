@@ -1,18 +1,25 @@
+import { motion } from "framer-motion";
 import arrayAreaStyles from "../pages/gameLoopPage/styles/arrayArea.module.css"
 import headerStyles from "../pages/gameLoopPage/styles/header.module.css";
 
-export function ArrayElement({ value } : {value: number}) {
+export function ArrayElement({ value, spot } : { value: number, spot: boolean }) {
     return (
-        <div className={arrayAreaStyles.arrayDigit}> {/*style={{backgroundColor: "re"}}>*/}
+        <motion.div
+            layout
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className={`${arrayAreaStyles.arrayDigit} ${spot ? arrayAreaStyles.redSpot : arrayAreaStyles.greenSpot}`}>
             {value}
-        </div>
+        </motion.div>
     )
 }
 
-export function HeaderElement({ turns, points } : { turns: number, points: number }) {
+export function HeaderElement({ turns, points, reset } : { turns: number, points: number, reset: () => void }) {
     return (
         <div className={headerStyles.header}>
-            <button className={headerStyles.resetButton}> Restart </button>
+            <button className={headerStyles.resetButton} onClick={() => reset()}> Restart </button>
             <p className = {headerStyles.title}> CodeSort </p>
             <div className= {headerStyles.rightSection}>
                 <p className = {headerStyles.turns}> Turns Passed {turns} </p>
@@ -21,3 +28,5 @@ export function HeaderElement({ turns, points } : { turns: number, points: numbe
         </div>
     )
 }
+
+// export function

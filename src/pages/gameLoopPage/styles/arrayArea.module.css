@@ -1,15 +1,19 @@
 .arrayArea {
     display: flex;
     flex: 3;
-    background-color: #2274ab;
     justify-content: center;
     align-items: center;
-    border-top: 8px solid #2274ab;
-    border-bottom: 8px solid #2274ab;
+    border-top: 8px;
+    border-bottom: 8px;
+    padding-top: 50px;
+    position: relative;
+    background: linear-gradient(to bottom, darkblue 0%, #2274ab 5%, #2274ab 100%);
+    overflow: visible;
 }
 
 .arrayDigit {
-    background-color: rgb(225,1,193);
+    position: relative;
+    background-color: rgb(0, 123, 255);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,13 +21,13 @@
     padding: 5px;
     height: 60px;
     width: 60px;
-    border: 6px solid rgb(107, 0, 81);
+    border: 6px solid midnightblue;
     margin-right: 10px;
     border-radius: 10px;
     font-family: arial, serif;
-    color: #ddd9d9;
-    box-shadow: 1px 1px 20px rgba(202, 2, 172, 0.7);
-    font-weight: 700;
+    color: black;
+    box-shadow: 1px 1px 20px rgba(25, 25, 112, 0.7);
+    font-weight: bold;
 }
 
 .arrayText {
@@ -34,9 +38,20 @@
     padding-bottom: 50px;
     width: 340px;
     background-color: #2a71a8;
-
     font-size: 22px;
     font-weight: bold;
+}
 
-    color: #ccc7c7;
+.redSpot {
+    background-color: crimson !important; /* overrides default blue */
+    border-color: darkred;
+    box-shadow: 1px 1px 20px rgba(255, 0, 0, 0.7);
+    color: white;
+}
+
+.greenSpot {
+    background-color: limegreen !important; /* overrides default blue */
+    border-color: darkgreen;
+    box-shadow: 1px 1px 20px rgba(0, 255, 0, 0.7);
+    color: white;
 }
