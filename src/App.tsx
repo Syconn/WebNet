@@ -15,7 +15,7 @@ function App() {
     const [serverActive, setServerActive] = useState<boolean>(true)
 
     useEffect(() => {
-        const update = async () => {
+        const update = () => {
             serverStatus().then(result => setServerActive(result != undefined))
             requestPage().then(pageData => { if (pageData) setPage(pageData); })
         }
