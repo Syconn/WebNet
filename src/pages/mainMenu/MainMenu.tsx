@@ -14,10 +14,10 @@ function MainMenu({ setPage }: PageProps) {
 
                 <div className={styles.titleBox}>
                     <p className={styles.titleText}>Code-Sort</p>
-                    <img className={styles.titleImage} alt="Code-Sort logo" src="/codeSort.png" />
+                    <img className={styles.titleImage} alt="" src="/codeSort.png" />
                 </div>
                 <p className={styles.creators}>
-                    Aidan Haack, Arron Ye, Rebecca Foreman, Adrianna Zhu, Gopi Melam, Liam Bast
+                    Aidan Haack, Arron Ye, Rebecca Forman, Adrianna Bui, Gopi Melam, Liam Bast
                 </p>
             </div>
 

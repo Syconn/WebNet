@@ -20,7 +20,10 @@ export function HeaderElement({ turns, points, reset } : { turns: number, points
     return (
         <div className={headerStyles.header}>
             <button className={headerStyles.resetButton} onClick={() => reset()}> Restart </button>
-            <p className = {headerStyles.title}> CodeSort </p>
+            <div className={headerStyles.title}>
+                <p className={headerStyles.titleText}>CodeSort</p>
+                <img className={headerStyles.titleImage} src="/codeSort.png" alt="" />
+            </div>
             <div className= {headerStyles.rightSection}>
                 <p className = {headerStyles.turns}> Turns Passed {turns} </p>
                 <p className = {headerStyles.points}> Total Points {points} </p>
