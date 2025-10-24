@@ -3,7 +3,7 @@ import arrayAreaStyles from "./styles/arrayArea.module.css"
 import handAreaStyles from "./styles/handArea.module.css"
 import {ArrayElement, HeaderElement} from "../../util/Utility.tsx";
 import {useEffect, useRef, useState} from "react";
-import {arrayState, deckState} from "../../networking/WebRequests.tsx";
+import {arrayState, deckState, restart} from "../../networking/WebRequests.tsx";
 import CardElement, {type CardData} from "./Card.tsx";
 import {AnimatePresence} from "framer-motion";
 
@@ -16,18 +16,36 @@ function GameLoop() {
     const prevArray = useRef<number[]>(array);
     const sortedArray = useRef<number[]>([]);
 
-    useEffect(() => {
-        arrayState().then(arrayState => {
-            if (array.length != 0) prevArray.current = array;
-            if (sortedArray.current.length == 0) sortedArray.current = [...arrayState].sort((a, b) => a - b);
-            setArray(arrayState)
-        })
-        deckState().then(cards => setCards(cards))
-    }, [array]);
+    // useEffect(() => {
+    //     arrayState().then(arrayState => {
+    //         prevArray.current = array;
+    //         sortedArray.current = [...arrayState].sort((a, b) => a - b);
+    //         setArray(arrayState)
+    //     })
+    //     deckState().then(cards => setCards(cards))
+    // }, [array]);
+
+    async function loadData() {
+        const arr = await arrayState();
+        prevArray.current = arr;
+        sortedArray.current = [...arr].sort((a, b) => a - b);
+        setArray(arr);
+
+        const cardData = await deckState();
+        setCards(cardData);
+    }
+
+    async function reset() {
+        restart()
+        setArray([]);
+        setTimeout(loadData, 500);
+    }
+
+    useEffect(() => { loadData() }, []);
 
     return (
         <div className={gameAreaStyles.pageContainer}>
-            <HeaderElement turns={turns} points={points} reset={() => {}}/>
+            <HeaderElement turns={turns} points={points} reset={reset}/>
             <div className={gameAreaStyles.gameArea}>
                 <div className={arrayAreaStyles.arrayArea}>
                     <AnimatePresence>
@@ -35,7 +53,7 @@ function GameLoop() {
                     </AnimatePresence>
                 </div>
                 <div className={handAreaStyles.handArea}>
-                    {cards.map(((card, index) => (<CardElement card={card} index={index} />)))}
+                    {cards.map(((card, index) => (<CardElement card={card} index={index} sync={loadData} />)))}
                 </div>
             </div>
         </div>
